@@ -1,0 +1,66 @@
+% ----------
+% Titelseite
+%   Die erste Seite im Dokument 
+% ----------
+\renewcommand{\maketitle}{
+  \begin{titlepage}
+    % oben definierten pagestyle nehmen
+    %   -> THM Banner im header 
+    \thispagestyle{titlepage}
+    % mittig ausrichten
+    \begin{center}
+        % einen halben centimeter Abstand
+        %   -> Leerzeichen am Anfang/Ende einer Seite werden automatisch abgeschnitten
+        %      da noch kein Inhalt auf der Seite vorhanden ist,
+        %      muss hier \vspace* verwendet werden
+        \vspace*{0.5cm}
+
+        % Art des Dokumentes
+        \LARGE{\textbf{\bericht}}
+
+        \vspace{1cm}
+        % Unterart/Motivation
+        \large{\berichtZwei}
+    \end{center}
+    
+    \vspace{1.5cm}
+    
+    \noindent \large{Thema:}
+    \vspace{0.2cm} \\
+    % Titel & Untertitel
+    % keine Einrückung 
+    \noindent\Large{\textbf{%
+      \title
+    }} \\
+    \large{\subtitle}
+    \vspace{1.5cm}
+    
+    % Studenten Tabelle 
+    \normalsize
+    \noindent\begin{tabular}{@{}p{3.2cm} l@{}}
+      Vorgelegt von: & \student \\
+                     & \studentStrasse \\
+                     & \studentOrt \\ 
+                     & \\
+      Matrikelnummer & \matnr 
+    \end{tabular}
+    % 1cm Abstand
+    \vspace{1cm}
+    
+    % Betreuer Tabelle       
+    \noindent Eingereicht bei\\
+    \noindent\begin{tabular}{@{}p{3.2cm} l@{}}
+      Hochschulbetreuer: & \professor\\
+      Fachbetreuer: & \betreuer \\
+    \end{tabular}
+    % 1cm Abstand
+    \vspace{1cm}
+
+    % Firma und Abgabedatum
+    \noindent\begin{tabular}{@{}p{3.2cm} l@{}}
+      Unternehmen: & \firma, \firma \\
+                   & \\
+      Eingereicht am: & \abgabedat \\
+    \end{tabular}
+  \end{titlepage}
+}
