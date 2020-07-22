@@ -1,30 +1,49 @@
 % 
 % Klasse für THM Berichte
 % Formatvorgaben von Okt 2019
-% 
+%
 
+\NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{thmreport}[2019/10/01 THM Praxisphasenbericht/Thesis]
 \LoadClass{report}
 
-% Parameter verarbeiten
-\RequirePackage{xkeyval}%
+\RequirePackage{ifthen}
+\RequirePackage{cmds}
 
-% define parameter
-%   default value is empty -> no bib
-\def\bibres{}
-% -> if bibres not empty, execute first parameter
-\newcommand{\ifhasbib}[1]{\ifthenelse{\equal{\bibres}{}}{}{#1}}
-\define@key{thmreport.cls}{bibres}[{}]{
-  \def\bibres{#1}
-}
 
-% define abstract text
-\def\abstracttext{abstracttext}
-\define@key{thmreport.cls}{abstracttext}[{}]{
-  \def\abstracttext{#1}
+% ---Parameter verarbeiten
+\RequirePackage{xkeyval}
+% --- Parameter: bibpath ---
+\define@key{thmreport.cls}{bibpath}[{}]{
+  \def\bibpath{#1}
 }
- 
-\ExecuteOptionsX{bibres}
+\ExecuteOptionsX{bibpath}
+
+
+% --- Parameter: abstractpath ---
+\def\abstractpath{}
+\define@key{thmreport.cls}{abstractpath}[{}]{
+  \def\abstractpath{#1}
+}
+\ExecuteOptionsX{abstractpath}
+
+
+% --- Parameter: conficlausepath ---
+\def\conficlausepath{}
+\define@key{thmreport.cls}{conficlausepath}[{}]{
+  \def\conficlausepath{#1}
+}
+\ExecuteOptionsX{conficlausepath}
+
+
+% --- Parameter: lang ---
+\def\reportlang{de}
+\define@key{thmreport.cls}{lang}[{}]{
+  \def\reportlang{#1}
+}
+\ExecuteOptionsX{lang}
+
+
 \ProcessOptionsX
 
 
@@ -32,39 +51,41 @@
 \RequirePackage{setspace}
 \onehalfspacing
 
-% font
+% Schriftart
 \RequirePackage{helvet}
 \renewcommand{\familydefault}{\sfdefault}
 
 \RequirePackage[utf8]{inputenc}
-\RequirePackage[german]{babel}
+
+\ifthenelse{\equal{\reportlang}{de}}{
+  % deutsch als Sprache angeben
+  \RequirePackage[ngerman]{babel}
+} {
+  \RequirePackage[english]{babel}
+}
 
 
+
+% ausgelagerte Pakete
 \RequirePackage{reportmetadata}
 \RequirePackage{confidentialityclause}
 \RequirePackage{thmpagestyles}
 \RequirePackage{thmtitlepage}
 
-% ----------
-% ----------
-
-% Namen von aktuellen Kapiteln, Abschnitt und Pragraphen
-\let\Chaptermark\chaptermark
-\def\chaptermark#1{\def\Chaptername{#1}\Chaptermark{#1}}
-\let\Sectionmark\sectionmark
-\def\sectionmark#1{\def\Sectionname{#1}\Sectionmark{#1}}
-\let\Subsectionmark\subsectionmark
-\def\subsectionmark#1{\def\Subsectionname{#1}\Subsectionmark{#1}}
-\let\Subsubsectionmark\subsubsectionmark
-\def\subsubsectionmark#1{\def\Subsubsectionname{#1}\Subsubsectionmark{#1}}
-
 
 \AtBeginDocument{
   \maketitle
-  \confidentialityclause
 
-  \chapter*{Abstrakt}
-  \abstracttext
+  \ifnotnull{\conficlausepath}{
+    \chapter*{Confidentiality Clause}
+    \input{\conficlausepath}
+  }
+
+  \ifnotnull{\abstractpath}{
+    \chapter*{Abstrakt}
+    \input{\abstractpath}
+  }
+
   \pagenumbering{Roman}
   \pagestyle{empty}
   \clearpage
@@ -72,16 +93,25 @@
   \tableofcontents
   
   \pagestyle{main}
+
+  % leeres Kapitel
+  % ohne aktuelles Kapitel kann 
+  \chapter*{}
 }
 
 % important: AtEndDocument needs to be defined, before biblatex is imported
 % see https://tex.stackexchange.com/questions/371814
 \AtEndDocument{
-  \ifhasbib{\printbibliography}
+  \ifnotnull{\bibpath}{
+    \printbibliography
+  }
 }
 
 % import csquotes and biblatex
 \RequirePackage{csquotes}
-\RequirePackage[backend=biber]{biblatex}
-% add bibresource, if value is provided
-\ifhasbib{\addbibresource{\bibres}}
+
+% Literaturverzeichnis anhängen, falls vorhanden
+\ifnotnull{\bibpath}{
+  \RequirePackage[backend=biber]{biblatex}
+  \addbibresource{\bibpath}
+}
