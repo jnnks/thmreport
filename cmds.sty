@@ -1,0 +1,5 @@
+% Hilfskommandos
+% wenn #1 leer, führe #2 aus
+\newcommand{\ifnull}[2]{\ifthenelse{\equal{#1}{}}{#2}{}}
+% wenn #1 nicht leer, führe #2 aus
+\newcommand{\ifnotnull}[2]{\ifthenelse{\equal{#1}{}}{}{#2}}
