@@ -28,3 +28,32 @@ Das Template ist ausgelegt mit minimalem Inhalt ein brauchbares Ergebnis zu prod
 `conficlausepath` [Zeichenkette]: relativer Pfad zu einer .tex Datei, die den Text der Vertraulichkeitsklausel
 `bibpath`[Zeichenkette]: relativer Pfad zu einer .bib Datei, die die Definitionen des Literaturverzeichnisses enthält.
 `lang`["en", "de"]: gibt an, ob der Bericht in Englisch oder Deutsch verfasst ist.
+
+### Änderung der Meta-Daten
+Die documentclass enthält Variablen, die nicht als Parameter repräsentiert sind. Dafür werden commands verwendet, die sich wie globale Variablen verhalten.
+
+Werte wie Titel, Autor und Name der Firma müssen vorgegeben werden. Best Practise ist eine zusätzliche Datei einzuführen, die alle Meta-Daten enthält und diese in der Preambel mit `\include{path}` einzufügen.
+
+Die Standart Werte der Meta-Daten sind die Namen der commands, die sie repräsentieren. Der Title des Dokuments ist mit dem command `\title` definiert und kann durch `\renewcommand{\title}{Mein Titel}` angepasst werden.
+
+Hier ist eine Beispiel Implementation einer Meta-Daten Datei:
+```
+\renewcommand{\bericht}{Bachelor-Thesis}
+\renewcommand{\berichtZwei}{zur Erlangung des Grades Bachelor of Science}
+
+\renewcommand{\title}{Dokumenterstellung mit LaTeX}
+\renewcommand{\subtitle}{Abwägung von Vor- und Nachteilen eines logischen Markups}
+
+\renewcommand{\student}{Max Mustermann}
+\renewcommand{\studentStrasse}{Musterstraße 3}
+\renewcommand{\studentOrt}{Wetzlar}
+\renewcommand{\matnr}{133742069}
+
+\renewcommand{\betreuer}{Herr Betreuer}
+\renewcommand{\professor}{Prof. Hochschule}
+
+\renewcommand{\firma}{MusterFirma GmbH}
+\renewcommand{\firmaOrt}{Wetzlar}
+
+\renewcommand{\abgabedat}{01.01.2020}
+```
