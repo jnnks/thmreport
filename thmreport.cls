@@ -46,6 +46,11 @@
 
 \ProcessOptionsX
 
+% commands zum Zitieren
+% indirektes Zitat
+\newcommand{\indircite}[1]{\footnote{Vgl. \cite{#1}}}
+% direktes Zitat
+\newcommand{\dircite}[1]{\footnote{\cite{#1}}}
 
 % Zeilenabstand 1.5-fach
 \RequirePackage{setspace}
@@ -95,8 +100,10 @@
   \pagestyle{main}
 
   % leeres Kapitel
-  % ohne aktuelles Kapitel kann 
   \chapter*{}
+  % --> der Name des Kapitels wird in der Fußzeile angezeigt
+  %   - falls Benuzter kein Kapitel anlegt, gibt es einen Fehler,
+  %     der nicht gut nachvollziehbar ist
 }
 
 % important: AtEndDocument needs to be defined, before biblatex is imported
@@ -111,7 +118,10 @@
 \RequirePackage{csquotes}
 
 % Literaturverzeichnis anhängen, falls vorhanden
-\ifnotnull{\bibpath}{
-  \RequirePackage[backend=biber]{biblatex}
+\ifnotnull{\bibpath}{  
+  \usepackage[%
+    backend=biber,%
+    autocite=footnote,%
+    style=authortitle-ibid]{biblatex}
   \addbibresource{\bibpath}
 }
