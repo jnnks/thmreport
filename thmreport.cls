@@ -54,6 +54,23 @@
 \ExecuteOptionsX{lang}
 
 
+\def\reporttype{thesis}
+\define@key{thmreport.cls}{type}[{}]{
+  \def\reportlang{#1}
+
+  \ifthenelse{\equal{#1}{thesis}}{
+    % Dokument ist eine Thesis
+    \def\reporttype{Bachelor-Thesis}
+    \def\reportsubtype{zur Erlangung des Grades Bachelor of Science}
+  }{
+    % Dokument ist ein Praxisphasenbericht    
+    \def\reporttype{Praxisphasen-Bericht}
+    \def\reportsubtype{}
+  }
+}
+\ExecuteOptionsX{type}
+
+
 \ProcessOptionsX
 
 % commands zum Zitieren

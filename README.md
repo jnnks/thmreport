@@ -43,6 +43,7 @@ Für einfaches zitieren gibt es zwei commands, die das erstellen einer Fußnote 
 `conficlausepath` [Zeichenkette]: relativer Pfad zu einer .tex Datei, die den Text der Vertraulichkeitsklausel
 `bibpath`[Zeichenkette]: relativer Pfad zu einer .bib Datei, die die Definitionen des Literaturverzeichnisses enthält.
 `lang`["en", "de"]: gibt an, ob der Bericht in Englisch oder Deutsch verfasst ist.
+`type`["thesis", "report"]: gibt an, ob der Bericht ein Praxisphasenbericht oder eine Thesis ist.
 
 ## Änderung der Meta-Daten
 Die documentclass enthält Variablen, die nicht als Parameter repräsentiert sind. Dafür werden commands verwendet, die sich wie globale Variablen verhalten.
