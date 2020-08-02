@@ -40,6 +40,16 @@
 \def\reportlang{de}
 \define@key{thmreport.cls}{lang}[{}]{
   \def\reportlang{#1}
+
+  % falls "lang" == "de"
+  \ifthenelse{\equal{#1}{de}}{
+    % deutsche Begriffe verwenden
+    \def\abstracttitle{Abstrakt}
+    \def\conficlausetitle{Sperrvermerk}
+  }{
+    \def\abstracttitle{Abstract}
+    \def\conficlausetitle{Confidentiality Clause}
+  }
 }
 \ExecuteOptionsX{lang}
 
@@ -82,12 +92,12 @@
   \maketitle
 
   \ifnotnull{\conficlausepath}{
-    \chapter*{Confidentiality Clause}
+    \chapter*{\conficlausetitle}
     \input{\conficlausepath}
   }
 
   \ifnotnull{\abstractpath}{
-    \chapter*{Abstrakt}
+    \chapter*{\abstracttitle}
     \input{\abstractpath}
   }
 
