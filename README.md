@@ -58,19 +58,19 @@ Die Standart Werte der Meta-Daten sind die Namen der commands, die sie repräsen
 
 Hier ist eine Beispiel Implementation einer Meta-Daten Datei:
 ```
-\renewcommand{\title}{Dokumenterstellung mit LaTeX}
-\renewcommand{\subtitle}{Abwägung von Vor- und Nachteilen eines logischen Markups}
+\def\title{Dokumenterstellung mit LaTeX}
+\def\subtitle{Abwägung von Vor- und Nachteilen eines logischen Markups}
 
-\renewcommand{\student}{Max Mustermann}
-\renewcommand{\studentStrasse}{Musterstraße 3}
-\renewcommand{\studentOrt}{Wetzlar}
-\renewcommand{\matnr}{133742069}
+\def\student{Max Mustermann}
+\def\studentStrasse{Musterstraße 3}
+\def\studentOrt{Wetzlar}
+\def\matnr{133742069}
 
-\renewcommand{\betreuer}{Herr Betreuer}
-\renewcommand{\professor}{Prof. Hochschule}
+\def\betreuer{Herr Betreuer}
+\def\professor{Prof. Hochschule}
 
-\renewcommand{\firma}{MusterFirma GmbH}
-\renewcommand{\firmaOrt}{Wetzlar}
+\def\firma{MusterFirma GmbH}
+\def\firmaOrt{Wetzlar}
 
-\renewcommand{\abgabedat}{01.01.2020}
+\def\abgabedat{01.01.2020}
 ```
