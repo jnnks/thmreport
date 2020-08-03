@@ -125,7 +125,6 @@
   \tableofcontents
   
   \pagestyle{main}
-
   % leeres Kapitel
   \chapter*{}
   % --> der Name des Kapitels wird in der Fußzeile angezeigt
@@ -136,6 +135,7 @@
 % important: AtEndDocument needs to be defined, before biblatex is imported
 % see https://tex.stackexchange.com/questions/371814
 \AtEndDocument{
+  \pagestyle{empty}
   \ifnotnull{\bibpath}{
     \printbibliography
   }
