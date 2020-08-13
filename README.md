@@ -24,6 +24,13 @@ Das Template ist ausgelegt mit minimalem Inhalt ein brauchbares Ergebnis zu prod
 # Features
 Das Template existiert, um die Erstellung des Berichts einfacher zu gestalten. Viele Kleinigkeiten, die per Hand gemacht werden müssten, sind eingerichtet.
 
+## Maße
+Die vorgegebenen Abstände entsprechen den offiziellen Vorgaben der THM/StdPlus. Falls keine genauen Vorgaben gemacht werden, wurde das Dokument "Richtlinie Wissenschaftliches Arbeiten" selbst als Vorlage verwendet.
+Das ist beispielsweise bei dem Abstand der Seitenzahl zum oberen und rechten Papierrand der Fall.
+
+
+
+
 ## Literaturverzeichnis
 Zum Einsatz kommt biber/bibatex. Das ist ein Paket, welches in allen mordernen Tex Installationen vorhanden ist, bzw. installiert werden kann. 
 Das Literaturverzeichnis wird nach Vorgabe am Ende des Dokumentes eingefügt und Zitate werden mit Verweiß auf eine Fußnote erstellt.

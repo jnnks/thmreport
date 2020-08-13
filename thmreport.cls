@@ -108,6 +108,10 @@
 \AtBeginDocument{
   \maketitle
 
+  \pagenumbering{Roman}
+  \setcounter{page}{2}
+  \pagestyle{plain}
+
   \ifnotnull{\conficlausepath}{
     \chapter*{\conficlausetitle}
     \input{\conficlausepath}
@@ -118,18 +122,11 @@
     \input{\abstractpath}
   }
 
-  \pagenumbering{Roman}
-  \pagestyle{empty}
-  \clearpage
-
-  \tableofcontents
   
+  \tableofcontents
+  \clearpage
+  \pagenumbering{arabic}
   \pagestyle{main}
-  % leeres Kapitel
-  \chapter*{}
-  % --> der Name des Kapitels wird in der Fußzeile angezeigt
-  %   - falls Benuzter kein Kapitel anlegt, gibt es einen Fehler,
-  %     der nicht gut nachvollziehbar ist
 }
 
 % important: AtEndDocument needs to be defined, before biblatex is imported
