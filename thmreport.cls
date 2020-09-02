@@ -78,6 +78,7 @@
 \newcommand{\indircite}[1]{\footnote{Vgl. \cite{#1}}}
 % direktes Zitat
 \newcommand{\dircite}[1]{\footnote{\cite{#1}}}
+\newcommand{\dircitee}[2]{\footnote{\cite{#1} #2}}
 
 % Zeilenabstand 1.5-fach
 \RequirePackage{setspace}
