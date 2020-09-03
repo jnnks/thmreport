@@ -105,6 +105,14 @@
 \RequirePackage{thmpagestyles}
 \RequirePackage{thmtitlepage}
 
+\usepackage[dvipsnames]{xcolor}
+\RequirePackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=violet,
+    citecolor=YellowOrange,      
+    urlcolor=Aquamarine,
+}
 
 \AtBeginDocument{
   \maketitle
@@ -125,6 +133,7 @@
 
   
   \tableofcontents
+  \listoffigures
   \clearpage
   \pagenumbering{arabic}
   \pagestyle{main}
