@@ -13,65 +13,57 @@
 
 % ---Parameter verarbeiten
 \RequirePackage{xkeyval}
+
 % --- Parameter: bibpath ---
-\define@key{thmreport.cls}{bibpath}[{}]{
-  \def\bibpath{#1}
-}
+\define@key{thmreport.cls}{bibpath}[{}]{ \def\bibpath{#1} }
 \ExecuteOptionsX{bibpath}
 
-
 % --- Parameter: abstractpath ---
-\def\abstractpath{}
-\define@key{thmreport.cls}{abstractpath}[{}]{
-  \def\abstractpath{#1}
-}
+\define@key{thmreport.cls}{abstractpath}[{}]{ \def\abstractpath{#1} }
 \ExecuteOptionsX{abstractpath}
 
-
 % --- Parameter: conficlausepath ---
-\def\conficlausepath{}
-\define@key{thmreport.cls}{conficlausepath}[{}]{
-  \def\conficlausepath{#1}
-}
+\define@key{thmreport.cls}{conficlausepath}[{}]{ \def\conficlausepath{#1} }
 \ExecuteOptionsX{conficlausepath}
 
 
 % --- Parameter: lang ---
-\def\reportlang{de}
-\define@key{thmreport.cls}{lang}[{}]{
-  \def\reportlang{#1}
-
-  % falls "lang" == "de"
-  \ifthenelse{\equal{#1}{de}}{
-    % deutsche Begriffe verwenden
-    \def\abstracttitle{Abstrakt}
-    \def\conficlausetitle{Sperrvermerk}
-  }{
-    \def\abstracttitle{Abstract}
-    \def\conficlausetitle{Confidentiality Clause}
-  }
-}
+\define@key{thmreport.cls}{lang}[de]{ \def\reportlang{#1} }
 \ExecuteOptionsX{lang}
 
-
-\def\reporttype{thesis}
-\define@key{thmreport.cls}{type}[{}]{
-  \def\reportlang{#1}
-
-  \ifthenelse{\equal{#1}{thesis}}{
-    % Dokument ist eine Thesis
-    \def\reporttype{Bachelor-Thesis}
-    \def\reportsubtype{zur Erlangung des Grades Bachelor of Science}
-  }{
-    % Dokument ist ein Praxisphasenbericht    
-    \def\reporttype{Praxisphasen-Bericht}
-    \def\reportsubtype{}
-  }
-}
+% --- Parameter: type ---
+\define@key{thmreport.cls}{type}[thesis]{ \def\reporttype{#1} }
 \ExecuteOptionsX{type}
-
-
 \ProcessOptionsX
+
+\DeclareOption{hasfigures}{ \def\hasfigures{true} }
+\DeclareOption{hastables}{ \def\hastables{true} }
+\DeclareOption{haslistings}{ \def\haslistings{true} }
+\ProcessOptions\relax
+
+
+
+% falls "lang" == "de"
+\ifthenelse{\equal{\reportlang}{de}}{
+  % deutsche Begriffe verwenden
+  \def\abstracttitle{Abstrakt}
+  \def\conficlausetitle{Sperrvermerk}
+}{
+  \def\abstracttitle{Abstract}
+  \def\conficlausetitle{Confidentiality Clause}
+}
+
+\ifthenelse{\equal{\reporttype}{thesis}}{
+  % Dokument ist eine Thesis
+  \def\reporttype{Bachelor-Thesis}
+  \def\reportsubtype{zur Erlangung des Grades Bachelor of Science}
+}{
+  % Dokument ist ein Praxisphasenbericht    
+  \def\reporttype{Praxisphasen-Bericht}
+  \def\reportsubtype{}
+}
+
+
 
 % commands zum Zitieren
 % indirektes Zitat
@@ -133,7 +125,16 @@
 
   
   \tableofcontents
-  \listoffigures
+
+  % Liste der Abbildungen anzeigen 
+  \ifdefined\hasfigures \listoffigures \fi
+  
+  % Liste der Tabellen anzeigen 
+  \ifdefined\hastables \listoftables \fi
+  
+  % Liste der Listings anzeigen 
+  \ifdefined\haslistings \lstlistoflistings \fi
+    
   \clearpage
   \pagenumbering{arabic}
   \pagestyle{main}
