@@ -141,11 +141,12 @@
   }
 }
 
-% import csquotes and biblatex
-\RequirePackage{csquotes}
 
 % Literaturverzeichnis anhängen, falls vorhanden
 \ifnotnull{\bibpath}{  
+  % import csquotes and biblatex
+  \RequirePackage{csquotes}
+  
   \usepackage[%
     backend=biber,%
     autocite=footnote,%
