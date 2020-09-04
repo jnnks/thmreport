@@ -98,7 +98,9 @@
     urlcolor=Aquamarine,
 }
 
-\AtBeginDocument{
+\RequirePackage{etoolbox}
+
+\AfterEndPreamble{
   \maketitle
 
   \pagenumbering{Roman}
@@ -146,7 +148,7 @@
 \ifnotnull{\bibpath}{  
   % import csquotes and biblatex
   \RequirePackage{csquotes}
-  
+
   \usepackage[%
     backend=biber,%
     autocite=footnote,%
