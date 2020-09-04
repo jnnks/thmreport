@@ -74,15 +74,6 @@
 
 \RequirePackage[utf8]{inputenc}
 
-\ifthenelse{\equal{\reportlang}{de}}{
-  % deutsch als Sprache angeben
-  \RequirePackage[ngerman]{babel}
-} {
-  \RequirePackage[english]{babel}
-}
-
-
-
 % ausgelagerte Pakete
 \RequirePackage{reportmetadata}
 \RequirePackage{confidentialityclause}
