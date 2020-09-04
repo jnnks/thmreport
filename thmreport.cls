@@ -48,9 +48,13 @@
   % deutsche Begriffe verwenden
   \def\abstracttitle{Abstrakt}
   \def\conficlausetitle{Sperrvermerk}
+
+  \def\indirciteVgl{Vgl.}
 }{
   \def\abstracttitle{Abstract}
   \def\conficlausetitle{Confidentiality Clause}
+
+  \def\indirciteVgl{See}
 }
 
 \ifthenelse{\equal{\reporttype}{thesis}}{
@@ -135,7 +139,7 @@
 
   % commands zum Zitieren
   % indirektes Zitat
-  \newcommand{\indircite}[1]{\footnote{Vgl. \cite{#1}}}
+  \newcommand{\indircite}[1]{\footnote{\indirciteVgl \cite{#1} #2}}
   % direktes Zitat
   \newcommand{\dircite}[2]{\footnote{\cite{#1} #2}}
 }
