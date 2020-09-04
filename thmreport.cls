@@ -137,6 +137,5 @@
   % indirektes Zitat
   \newcommand{\indircite}[1]{\footnote{Vgl. \cite{#1}}}
   % direktes Zitat
-  \newcommand{\dircite}[1]{\footnote{\cite{#1}}}
-  \newcommand{\dircitee}[2]{\footnote{\cite{#1} #2}}
+  \newcommand{\dircite}[2]{\footnote{\cite{#1} #2}}
 }
