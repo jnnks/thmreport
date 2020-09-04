@@ -64,14 +64,6 @@
 }
 
 
-
-% commands zum Zitieren
-% indirektes Zitat
-\newcommand{\indircite}[1]{\footnote{Vgl. \cite{#1}}}
-% direktes Zitat
-\newcommand{\dircite}[1]{\footnote{\cite{#1}}}
-\newcommand{\dircitee}[2]{\footnote{\cite{#1} #2}}
-
 % Zeilenabstand 1.5-fach
 \RequirePackage{setspace}
 \onehalfspacing
@@ -159,4 +151,11 @@
     autocite=footnote,%
     style=authortitle-ibid]{biblatex}
   \addbibresource{\bibpath}
+
+  % commands zum Zitieren
+  % indirektes Zitat
+  \newcommand{\indircite}[1]{\footnote{Vgl. \cite{#1}}}
+  % direktes Zitat
+  \newcommand{\dircite}[1]{\footnote{\cite{#1}}}
+  \newcommand{\dircitee}[2]{\footnote{\cite{#1} #2}}
 }
