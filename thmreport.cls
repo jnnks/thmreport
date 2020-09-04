@@ -72,8 +72,6 @@
 \RequirePackage{helvet}
 \renewcommand{\familydefault}{\sfdefault}
 
-\RequirePackage[utf8]{inputenc}
-
 % ausgelagerte Pakete
 \RequirePackage{reportmetadata}
 \RequirePackage{confidentialityclause}
