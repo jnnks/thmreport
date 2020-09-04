@@ -78,7 +78,6 @@
 
 % ausgelagerte Pakete
 \RequirePackage{reportmetadata}
-\RequirePackage{confidentialityclause}
 \RequirePackage{thmpagestyles}
 \RequirePackage{thmtitlepage}
 
