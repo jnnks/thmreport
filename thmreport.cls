@@ -139,7 +139,7 @@
 
   % commands zum Zitieren
   % indirektes Zitat
-  \newcommand{\indircite}[1]{\footnote{\indirciteVgl \cite{#1} #2}}
+  \newcommand{\indircite}[2]{\footnote{\indirciteVgl \cite{#1} #2}}
   % direktes Zitat
   \newcommand{\dircite}[2]{\footnote{\cite{#1} #2}}
 }
