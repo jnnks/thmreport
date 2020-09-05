@@ -2,6 +2,10 @@ Das Package enthält eine LaTeX documentclass zur Erstellung von Praxisphasenber
 
 Als Vorlage wurdensowohl die Formatvorgaben aus dem Dokument "Richtlinien zum Wissenschaftlichen Arbeiten" (Stand Okt. 2019) benutzt.
 
+<img src="https://i.ibb.co/r0BfRqy/titlepage.png" width="256"> <img src="https://i.ibb.co/vVbVT1d/chapterpage.png" width="256"> <img src="https://i.ibb.co/2n5nWMK/nonchapterpage.png" width="256"> <img src="https://i.ibb.co/4J9f5Cp/cite.png" width="256">
+
+
+
 # Erste Schritte
 ## Installation
 Da das Paket nicht auf LaTeX Distributionen verfügbar ist, ist das Klonen des Repositories die bevorzugte Lösung.
